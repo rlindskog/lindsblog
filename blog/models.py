@@ -11,8 +11,20 @@ class Post(models.Model):
     body = models.TextField()
 
 
-    created = models.DateTimeField(auto_created=True)
-    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    edited = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    slug = models.SlugField(max_length=120, unique=True)
+
+    # this is what the table will be labeled in the admin! instead of post object
+    def __str__(self):
+        return str(self.title)
+
+    # names the object.  also orders stuff.  this is completely optional to do, and I honestly don't like it
+    class Meta:
+        # verbose_name = "Blog Entry"
+        # verbose_name_plural = "Blog Entries"
+        ordering = ['-created']
 
 class Votes(models.Model):
     upvote = models.IntegerField()
