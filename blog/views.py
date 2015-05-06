@@ -22,7 +22,7 @@ def contact(request):
 def blog(request):
     entries = Post.objects.all()[:2]
     template = 'blog.html'
-
+    # pageinator
     # title_view = "this should be a model title"
     # author_view = "this should be a model author"
     # category_view = "this should be a model category"
