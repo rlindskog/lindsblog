@@ -7,4 +7,8 @@ from .models import Post
 # class PostAdmin(admin.ModelAdmin):
 #     formfield_overrides = {MarkdownField: {'widget': AdminMarkdownWidget}}
 
-admin.site.register(Post)
+# adds things next to your model
+class PostAdmin(admin.ModelAdmin):
+    list_display = ['__str__', 'author', 'category', 'created', 'edited',]
+    prepopulated_fields = {'slug': ('title',)}
+admin.site.register(Post, PostAdmin)

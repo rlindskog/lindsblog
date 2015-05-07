@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post
 from django.conf import settings
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 # Create your views here.
 
 def construction(request):
@@ -18,9 +20,9 @@ def contact(request):
 
 
 def blog(request):
-    entries = Post.objects.all()[:10]
-
+    entries = Post.objects.all()[:2]
     template = 'blog.html'
+    # pageinator
     # title_view = "this should be a model title"
     # author_view = "this should be a model author"
     # category_view = "this should be a model category"
