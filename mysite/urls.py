@@ -22,9 +22,12 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^$', 'blog.views.construction', name='construction'),
+    url(r'^$', 'home.views.home', name='home'),
+    url(r'^about', 'about.views.about', name='about'),
     url(r'^blog', 'blog.views.blog', name='blog'),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^portfolio', 'portfolio.views.portfolio', name='portfolio'),
+
+    url(r'^admin', include(admin.site.urls)),
 ]
 
 if settings.DEBUG:
