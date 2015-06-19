@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^blog', 'blog.views.blog', name='blog'),
     url(r'^portfolio', 'portfolio.views.portfolio', name='portfolio'),
 
-    url(r'^admin', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 ]
 
 if settings.DEBUG:

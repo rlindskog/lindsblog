@@ -9,7 +9,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="icon" href="{% static 'img/lindskog.png' %}">
 
     <title>Lindsblog</title>
 
@@ -19,6 +19,7 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'css/blog.css' %}" rel="stylesheet">
     <link href="{% static 'css/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'css/site.css' %}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -34,11 +35,10 @@
 
   <body>
 
-    <div class="container">
 
 
               <!-- Static navbar -->
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -47,7 +47,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Lindsblog</a>
+            <a class="navbar-brand" href="/">Lindsblog</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -69,9 +69,16 @@
 
 <!--end of navbar-->
 
+    <div class="container">
+
       <div class="blog-header">
         <h1 class="blog-title">Welcome to the Lindsblog</h1>
         <p class="lead blog-description">A blog of Ryan Lindskog's incredibly boring life.</p>
+{#        <form action="/your-category/" method="post">#}
+{#            {% csrf_token %}#}
+{#            {{ form }}#}
+{#            <input type="submit" value="Submit" />#}
+{#        </form>#}
       </div>
 
       <div class="row">
@@ -119,11 +126,13 @@
     </div><!-- /.container -->
 
     <footer class="blog-footer">
-      <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+        <p>&copy; The Common Report 2015</p>
     </footer>
+
+
 
 
     <!-- Bootstrap core JavaScript

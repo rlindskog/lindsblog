@@ -5,34 +5,24 @@
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
+  font-family: "Georgia", Georgia, Arial, sans-serif;
 }
 
-
-/* CUSTOMIZE THE NAVBAR
--------------------------------------------------- */
-
-/* Special class on .container surrounding .navbar, used for positioning it into place. */
-.navbar-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 20;
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: 0;
+  font-family: "Bangla MN";
+  font-weight: normal;
+  color: #333;
 }
 
-/* Flip around the padding for proper display in narrow viewports */
-.navbar-wrapper > .container {
-  padding-right: 0;
-  padding-left: 0;
+p, .p {
+  font-family: "Georgia", Georgia, Arial, sans-serif;
 }
-.navbar-wrapper .navbar {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-.navbar-wrapper .navbar .container {
-  width: auto;
-}
-
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */

@@ -32,7 +32,3 @@ class Post(models.Model):
     #     # verbose_name = "Blog Entry"
     #     # verbose_name_plural = "Blog Entries"
     #     ordering = ['-created']
-
-class Votes(models.Model):
-    upvote = models.IntegerField()
-    down_vote = models.IntegerField()
