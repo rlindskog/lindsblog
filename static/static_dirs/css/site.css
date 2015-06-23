@@ -12,8 +12,11 @@ h6, .h6 {
     font-family: "Bangla MN";
 }
 
+.navbar {
+    font-family: "Bangla MN";
+}
 
-.red-background {
-
+.box {
+    background-color: grey;
 }
 
