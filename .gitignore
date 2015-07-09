@@ -4,6 +4,8 @@
 __pycache__/
 *.py[cod]
 
+mysite/secret.py
+
 # C extensions
 *.so
 
@@ -56,4 +58,4 @@ docs/_build/
 
 # PyBuilder
 target/
-/mysite/secret.py
+
