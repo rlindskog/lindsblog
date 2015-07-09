@@ -2,12 +2,12 @@
 
 {% block content %}
 
-    {% for post in posts %}
+    {% for post in posts reversed %}
         <div class="blog-post">
             <h2 class="blog-post-title"> {{ post.title }} </h2>
             <p class="blog-post-meta">{{ post.created }} {{ post.category }} <a href="#">{{ post.author }}</a></p>
             <p>{{ post.body }}</p>
-            <h2>{{ post.slug }}</h2>
+{#            <h2>{{ post.slug }}</h2>#}
             <hr>
         </div><!-- /.blog-post -->
     {% endfor %}

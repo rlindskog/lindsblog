@@ -34,7 +34,7 @@ def blog(request):
     # because index is out basic layout
     template = 'index.html'
 
-    content = dict(posts=entries, user=request.user)
+    context = dict(posts=entries, user=request.user)
 
     # # filtering through categories!
     # for post in entries:
@@ -52,4 +52,4 @@ def blog(request):
     #         elif sort_category == 'Other' post.category == 'Other':
     #             print(post.title)
 
-    return render(request, template, content)
+    return render(request, template, context)
