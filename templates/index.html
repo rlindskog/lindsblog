@@ -1,8 +1,18 @@
 {% extends 'blog.html' %}
 
+
+
 {% block content %}
 
-    {% for post in posts reversed %}
+    <select>
+      <option value="{{ All }}">All</option>
+      <option value="{{ Tech }}">Tech</option>
+      <option value="{{ Sports }}">Sports</option>
+      <option value="{{ Music }}">Music</option>
+      <option value="{{ Philosophy }}">Philosophy</option>
+    </select>
+
+    {% for post in posts %}
         <div class="blog-post">
             <h2 class="blog-post-title"> {{ post.title }} </h2>
             <p class="blog-post-meta">{{ post.created }} {{ post.category }} <a href="#">{{ post.author }}</a></p>

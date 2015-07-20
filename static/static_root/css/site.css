@@ -17,5 +17,10 @@ h6, .h6 {
 }
 
 .box {
-    border-color: purple;
+    background-color: grey;
 }
+
+.well:hover {
+    background-color: rgba(200 200 200 50);
+}
+

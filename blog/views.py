@@ -18,8 +18,16 @@ def construction(request):
 # let's make home include all posts, and categories be the only posts
 
 def blog(request):
-    entries = Post.objects.all()
+    entries = Post.objects.order_by("-created").all()
+
+
+    entry_list = list(entries)
     paginator = Paginator(entries, 10)
+    for i in entries:
+        print(i.created)
+
+    # if Post.objects.filter(title="First"):
+    #     print("There is at least one entry called first.")
 
     try:
         page = int(request.GET.get("page", '10'))

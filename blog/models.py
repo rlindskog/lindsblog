@@ -8,14 +8,14 @@ class Post(models.Model):
     author = models.CharField(default='Ryan Lindskog', max_length=50)
 
     CATEGORY_CHOICES = (
+        ('All', 'All'),
         ('Tech', 'Tech'),
         ('Sports', 'Sports'),
         ('Music', 'Music'),
         ('Philosophy', 'Philosophy'),
-        ('Other', 'Other'),
     )
 
-    category = models.CharField(max_length=120, choices=CATEGORY_CHOICES)
+    category = models.CharField(max_length=120, choices=CATEGORY_CHOICES, default='All')
     body = models.TextField()
 
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
