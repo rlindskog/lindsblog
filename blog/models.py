@@ -12,10 +12,10 @@ class Post(models.Model):
         ('Sports', 'Sports'),
         ('Music', 'Music'),
         ('Philosophy', 'Philosophy'),
-        ('Other', 'Other'),
     )
 
-    category = models.CharField(max_length=120, choices=CATEGORY_CHOICES)
+    category = models.CharField(max_length=120, choices=CATEGORY_CHOICES, default='All')
+
     body = models.TextField()
 
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
@@ -32,7 +32,3 @@ class Post(models.Model):
     #     # verbose_name = "Blog Entry"
     #     # verbose_name_plural = "Blog Entries"
     #     ordering = ['-created']
-
-class Votes(models.Model):
-    upvote = models.IntegerField()
-    down_vote = models.IntegerField()
