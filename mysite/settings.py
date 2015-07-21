@@ -20,13 +20,22 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'u+8e@9##(5z9ic2-^@w-_coza=msse_$^23-3vu^hepl*xn-pz'
+
+from . import hidden
+
+SECRET_KEY = hidden.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = []
+
+EMAIL_HOST = hidden.EMAIL_HOST
+EMAIL_HOST_USER = hidden.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = hidden.EMAIL_HOST_PASSWORD
+EMAIL_PORT = hidden.EMAIL_PORT
+EMAIL_USE_TLS = hidden.EMAIL_USE_TLS
 
 
 # Application definition
@@ -36,8 +45,12 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites', # django-registration-redux
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms', # crispy-forms
+    'registration', # django-registration-redux
+    'home',
     'blog',
 )
 
@@ -65,12 +78,9 @@ TEMPLATES = [
             'context_processors': [
                 # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
                 # list if you haven't customized them:
-                'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.debug',
-                'django.template.context_processors.i18n',
-                'django.template.context_processors.media',
-                'django.template.context_processors.static',
-                'django.template.context_processors.tz',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -114,7 +124,9 @@ STATIC_URL = '/static/'
 #     os.path.join(BASE_DIR, 'templates'),
 # )
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'static_root')
+static_root_dir = 'static_root'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static', static_root_dir)
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static', 'static_dirs'),
@@ -123,3 +135,12 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
 
 MEDIA_URL = '/media/'
+
+# crispy-forms: http://django-crispy-forms.readthedocs.org/en/latest/
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+# django-registration-redux: https://django-registration-redux.readthedocs.org/en/latest/
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
+REGISTRATION_AUTO_LOGIN = False # Automatically log the user in.
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
