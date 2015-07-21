@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
+from home.views import template_title
 
 from .models import Post
 from .forms import CategoryForm
@@ -9,18 +10,11 @@ from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
 # Create your views here.
 
-
-def construction(request):
-    template = 'construction.html'
-    return render(request, template)
-
 # let's make home include all posts, and categories be the only posts
 
 def blog(request):
 
-
     form = CategoryForm(request.POST or None)
-
 
     if form.is_valid():
         category = form.cleaned_data.get('category')
@@ -50,6 +44,6 @@ def blog(request):
         entries = paginator.page(paginator.num_pages)
 
     template = 'blog.html'
-    context = dict(posts=entries, user=request.user, form=form, category=category)
+    context = dict(posts=entries, user=request.user, form=form, category=category, title=template_title(request))
 
     return render(request, template, context)

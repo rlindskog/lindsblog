@@ -23,10 +23,13 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^$', 'home.views.home', name='home'),
-    url(r'^about', 'about.views.about', name='about'),
-    url(r'^blog/', 'blog.views.blog', name='blog'),
-    url(r'^portfolio', 'portfolio.views.portfolio', name='portfolio'),
+    url(r'^about/', 'home.views.about', name='about'),
+    url(r'^portfolio/', 'home.views.portfolio', name='portfolio'),
 
+    url(r'^blog/', 'blog.views.blog', name='blog'),
+
+    url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^construction/', 'home.views.construction'),
     url(r'^admin/', include(admin.site.urls)),
 ]
 

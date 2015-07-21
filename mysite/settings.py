@@ -21,15 +21,21 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-from .secret import hidden_secret_key
+from . import hidden
 
-SECRET_KEY = hidden_secret_key
+SECRET_KEY = hidden.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = []
+
+EMAIL_HOST = hidden.EMAIL_HOST
+EMAIL_HOST_USER = hidden.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = hidden.EMAIL_HOST_PASSWORD
+EMAIL_PORT = hidden.EMAIL_PORT
+EMAIL_USE_TLS = hidden.EMAIL_USE_TLS
 
 
 # Application definition
@@ -39,12 +45,13 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites', # django-registration-redux
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms', # crispy-forms
+    'registration', # django-registration-redux
     'home',
-    'portfolio',
     'blog',
-    'about',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -71,12 +78,9 @@ TEMPLATES = [
             'context_processors': [
                 # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
                 # list if you haven't customized them:
-                'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.debug',
-                'django.template.context_processors.i18n',
-                'django.template.context_processors.media',
-                'django.template.context_processors.static',
-                'django.template.context_processors.tz',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -131,3 +135,12 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
 
 MEDIA_URL = '/media/'
+
+# crispy-forms: http://django-crispy-forms.readthedocs.org/en/latest/
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+# django-registration-redux: https://django-registration-redux.readthedocs.org/en/latest/
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
+REGISTRATION_AUTO_LOGIN = False # Automatically log the user in.
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
