@@ -50,4 +50,3 @@ def construction(request):
         'title': template_title(request),
     }
     return render(request, template, context)
-# Create your views here.

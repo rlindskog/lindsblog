@@ -15,6 +15,7 @@ class Post(models.Model):
     )
 
     category = models.CharField(max_length=120, choices=CATEGORY_CHOICES, default='All')
+
     body = models.TextField()
 
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
@@ -26,7 +27,7 @@ class Post(models.Model):
     def __str__(self):
         return str(self.title)
 
-    # names the object.  also orders stuff. stay away from verbose name, not compatible with the REST api
+    # names the object.  also orders stuff.  this is completely optional to do, and I honestly don't like it
     # class Meta:
     #     # verbose_name = "Blog Entry"
     #     # verbose_name_plural = "Blog Entries"

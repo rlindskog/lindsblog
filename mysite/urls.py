@@ -25,12 +25,14 @@ urlpatterns = [
     url(r'^$', 'home.views.home', name='home'),
     url(r'^about/', 'home.views.about', name='about'),
     url(r'^portfolio/', 'home.views.portfolio', name='portfolio'),
+    url(r'^construction/', 'home.views.construction'),
 
     url(r'^blog/', 'blog.views.blog', name='blog'),
 
     url(r'^accounts/', include('registration.backends.default.urls')),
-    url(r'^construction/', 'home.views.construction'),
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^admin', include(admin.site.urls)),
 ]
 
 if settings.DEBUG:
