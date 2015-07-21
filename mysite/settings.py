@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'registration', # django-registration-redux
     'home',
     'blog',
+    'contact',
 )
 
 MIDDLEWARE_CLASSES = (

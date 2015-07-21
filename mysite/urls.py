@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^construction/', 'home.views.construction'),
 
     url(r'^blog/', 'blog.views.blog', name='blog'),
+    url(r'^contact/', 'contact.views.contact', name='contact'),
 
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^admin/', include(admin.site.urls)),

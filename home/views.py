@@ -44,6 +44,7 @@ def portfolio(request):
 
     return render(request, template, context)
 
+
 def construction(request):
     template = 'construction.html'
     context = {
