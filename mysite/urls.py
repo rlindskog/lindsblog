@@ -24,7 +24,7 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^$', 'home.views.home', name='home'),
     url(r'^about', 'about.views.about', name='about'),
-    url(r'^blog', 'blog.views.blog', name='blog'),
+    url(r'^blog/', 'blog.views.blog', name='blog'),
     url(r'^portfolio', 'portfolio.views.portfolio', name='portfolio'),
 
     url(r'^admin/', include(admin.site.urls)),

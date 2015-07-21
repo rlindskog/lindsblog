@@ -8,7 +8,6 @@ class Post(models.Model):
     author = models.CharField(default='Ryan Lindskog', max_length=50)
 
     CATEGORY_CHOICES = (
-        ('All', 'All'),
         ('Tech', 'Tech'),
         ('Sports', 'Sports'),
         ('Music', 'Music'),
@@ -27,7 +26,7 @@ class Post(models.Model):
     def __str__(self):
         return str(self.title)
 
-    # names the object.  also orders stuff.  this is completely optional to do, and I honestly don't like it
+    # names the object.  also orders stuff. stay away from verbose name, not compatible with the REST api
     # class Meta:
     #     # verbose_name = "Blog Entry"
     #     # verbose_name_plural = "Blog Entries"
