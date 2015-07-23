@@ -6,18 +6,21 @@ from .forms import ContactForm
 
 def contact(request):
     form = ContactForm(request.POST or None)
+    user = request.user
     if form.is_valid():
-        form_full_name = form.cleaned_data.get('full_name')
-        form_email = form.cleaned_data.get('email')
-        form_message = form.cleaned_data.get('message')
+        message_form = form.cleaned_data.get('message')
+        subject_form = form.cleaned_data.get('subject')
 
-        subject = 'Django email'
+        user_email = request.user.email
+
         from_email = settings.EMAIL_HOST_USER
-        to_emails = [from_email]
+        to_emails = [settings.EMAIL_HOST_USER]
 
-        contact_message = "%s: %s via %s" % (form_full_name, form_email, form_message)
+        subject_string = "Lindsblog Message from %s" % subject_form
 
-        send_mail(subject, contact_message, from_email, to_emails, fail_silently=False)
+        contact_message = "user: %s\nuser_email: %s\nmessage_form: %s" % (user, user_email, message_form)
+
+        send_mail(subject_string, contact_message, from_email, to_emails, fail_silently=False)
 
     template = 'contact.html'
     context = {
