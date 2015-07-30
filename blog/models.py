@@ -20,6 +20,7 @@ class Post(models.Model):
 
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     edited = models.DateTimeField(auto_now_add=False, auto_now=True)
+    published = models.BooleanField(default=False)
 
     slug = models.SlugField(max_length=120, unique=True)
 

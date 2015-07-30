@@ -23,10 +23,11 @@ def blog(request):
 
     print(category)
 
-        # if Post.objects.filter(title="First"):
-        #     print("There is at least one entry called first.")
+    # if Post.objects.filter(title="First"):
+    #     print("There is at least one entry called first.")
 
     entries = Post.objects.order_by("-created").all()  # order_by("-created") to reverse
+
 
     entry_list = list(entries)
     paginator = Paginator(entries, 12)
