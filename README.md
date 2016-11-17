@@ -1,2 +1,3 @@
 # lindsblog
-This is a personal website, blog, and portfoloio for Ryan Lindskog! It is created in django, and I wrote every line of code.
+My personal website, www.RyanLindskog.com
+It only works in Safari because of the background animation, and how other browsers process frames when fastfowarding through video.
